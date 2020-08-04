@@ -1,0 +1,74 @@
+<!--整个发帖页面布局-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+  <!--顶部空白-->
+  <view class="top" style="background:#000000; opacity:0; "></view>
+
+<!--发帖-->
+<view class="container">
+  <view class="input">
+    <view class="merchandiseNameInput">
+      <van-field
+      value="{{ McdName}}"
+      placeholder="在这里输入商品名称吧！"
+      label="商品名"
+      border="{{ true }}"
+      bind:blur="onChangeName"
+      input-align="left"
+      size="large"
+      required clearable
+    />
+    </view>
+
+    <view class="merchandiseLink">
+      <van-field
+      value="{{ McdUrl}}"
+      placeholder="商品链接复制到这里吧！！"
+      label="商品链接"
+      border="{{ true }}"
+      bind:blur="onChangeUrl"
+      input-align="left"
+      size="large"
+      required clearable
+    />
+    </view>
+    <view class="post_content">
+      <van-field
+      value="{{ postContent }}"
+      label="内容"
+      type="textarea"
+      placeholder="写下你的好物安利吧！"
+      autosize
+      clearable
+      border="{{ true }}"
+      size="large"
+      maxlength= "1000"
+      show-word-limit
+      bind:blur="onChangeContent"
+    />
+    </view>
+
+    <!--上传图片-->
+    <view class="pic">
+      <van-uploader 
+       file-list="{{ postPicList }}"
+        max-count="1"
+        preview-size="110px"
+        bind:after-read="afterRead" 
+        upload-text="上传图片"
+        />
+     </view>   
+  </view>
+</view>
+
+
+<!--确定上传-->
+<van-button  size="large" bind:click="upLoad" color="#fa8677" class="button">
+确定上传</van-button>

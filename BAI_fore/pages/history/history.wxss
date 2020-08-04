@@ -1,0 +1,36 @@
+/* pages/history/history.wxss */
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+}
+.top{
+  top: 75px;
+}
+
+.content{
+  position: absolute;
+  top:140px;
+}
+
+.postHistory{
+  top:140px;
+  width: 100%;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.image{
+  padding-left:10px;
+  padding-top: 20px;
+}

@@ -1,0 +1,104 @@
+<!--pages/my/my.wxml-->
+<view class="backView">
+  <image class="i" mode="widthFix" src="../../utils/images/banner.jpg"></image>
+</view>
+
+<!--顶部空白-->
+<view class="top" style="background:#000000; opacity:0; "></view>
+
+<!--个人信息-->
+<view class="personalInfo">
+  <!--头像-->
+  <van-row >
+    <van-col span="8" >
+      <van-image
+      class="avatar"
+      round
+      fit="cover"
+      width="5rem"
+      height="5rem"
+      src="{{avatarUrl}}"
+      style="padding-left:15px"
+      />
+    </van-col>
+  
+    <!--昵称身份-->
+    <van-col span="12"  center>
+      <view  style="height:40px;width:200px; background:white; opacity:0.7;font-color:black; font-size:large; padding-left: 30px; line-height:82rpx; width:100%">
+      <text space="ensp">昵称:  {{nickname}}</text>
+      </view>
+      <view  style="height:40px;width:200px; background:white; opacity:0.7;font-color:black; font-size:large;padding-left: 30px;line-height:82rpx; width:100%">
+      <text space="ensp" wx:if="{{identity==1}}">身份： 顾客</text>
+      <text space="ensp" wx:if="{{identity==2}}">身份：商家</text>
+      </view>
+    </van-col>
+   
+  </van-row>
+</view>
+  
+
+<view class="center" style="background:#000000; opacity:0; "></view>
+
+  <!--商家认证-->
+  <van-cell wx:if="{{identity==1}}" title="认证成为商家" icon="shop-o" is-link bind:click="showPopup" />
+  <van-popup show="{{ showConfirmBox }}" closeable  position="bottom"
+    custom-style="height: 40%;" bind:close="onClose" center>
+
+      <van-cell title=" "  border="{{false}}"/>
+      <van-cell title=" "  border="{{false}}"/>
+      <van-cell title=" "  border="{{false}}"/>
+      <!--店铺链接-->
+      <van-field
+        value="{{ shopUrl }}"
+        required clearable
+        placeholder="请输入店铺链接"
+        bind:blur="onChangeShopUrl"
+        input-align="center"
+      />
+    
+    <van-dropdown-menu  active-color="#F2826D" font-size:small  direction="up">
+     <!--来源平台-->
+     <van-dropdown-item title="选择来源网站"  value="0" 
+     options="{{ shopSourceSite }}" 
+     bind:change="changeShopSS"/>
+     
+     <!--选择商铺类型-->
+    <van-dropdown-item title="选择店铺类型" value="0" options="{{ shopType }}" 
+    bind:change="changeShopType"/>
+     </van-dropdown-menu>
+
+    <!--确认按钮-->
+    <van-button class="confirm-button" size="large" color="#F2826D" 
+    bind:click="onShopConfirm"
+    >确定</van-button>
+  </van-popup>
+  
+
+
+
+  <!--我的收藏-->
+  <van-cell title="我的收藏" icon="like-o" is-link bind:click="openMyFav" />
+  <!--我的帖子-->
+  <van-cell title="我的帖子" icon="underway-o" is-link bind:click="openHistory" />
+  <!--通知-->
+  <van-cell title="我的通知" icon="comment-circle-o" is-link bind:click="openNotice" />
+  
+  
+
+  <!--底部导航栏-->
+<van-tabbar active="{{ activePage }}" bind:change="onChangePage" 
+active-color="#F2826D" inactive-color="#000">
+  <van-tabbar-item name="../ibuy/ibuy" icon="cart-o">ibuy</van-tabbar-item>
+  <van-tabbar-item name="../ishare/ishare" icon="friends-o">ishare</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity==2}}" name="../ishop/ishop" 
+   icon="shop-o">ishop</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity!=0}}" name="../my/my" icon="contact">my</van-tabbar-item>
+  <van-tabbar-item  wx:if="{{identity==0}}" name="../administrator/administrator"
+   icon="contact">my</van-tabbar-item>
+</van-tabbar>
+  
+  
+  
+  
+  
+  

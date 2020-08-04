@@ -1,0 +1,33 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/administrator/administrator",
+    
+    "pages/my/my",
+    
+    "pages/ishare/ishare",
+    "pages/shopAnalysis/shopAnalysis",
+    "pages/ibuy/ibuy",
+    "pages/ishop/ishop",
+    "pages/favourite/favourite",
+    "pages/detailed_post/detailed_post",
+    "pages/ishare_post/ishare_post",
+    "pages/supposePrice/supposePrice",
+    "pages/supposeAmount/supposeAmount",
+    "pages/notice/notice",
+    "pages/history/history"
+  ],
+
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "BAI",
+    "navigationBarTextStyle":"black",
+    "navigationStyle": "custom"
+  },
+
+  
+
+  "sitemapLocation": "sitemap.json"
+  
+}

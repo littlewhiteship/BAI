@@ -1,0 +1,155 @@
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.canvas2{
+  position: relative;
+  top:10px;
+  height: 500px;
+  width: 90%;
+}
+.canvas1{
+  padding-top: 60px;
+  position: relative;
+  top:10px;
+  height: 600px;
+  width: 90%;
+  z-index: 1;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+  z-index: 100;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.container{
+  position: relative;
+  top:75px;
+  background-color: white;
+}
+.top{
+  position:absolute;
+  width: 750rpx;
+  top: 10px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 35px;
+  
+}
+#choice{
+  position: absolute;
+  left: 60px;
+  right: 60px;
+  width: 255px;
+}
+.priceAnalysis{
+  padding-top: 80rpx;
+  position: relative;
+  top: 0px;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+}
+.weight{
+  position: relative;
+  width: 100%;
+  top: 10px;
+  height: 40px;
+
+}
+#slider{
+  position: relative;
+  width: 330px;
+  top:0px;
+  
+}
+
+
+.shopAnalysis{
+  position: relative;
+  width: 730rpx;
+  top: 50rpx;
+  left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+}
+.shop_img image{
+  flex-grow: 1;
+  width: 300rpx;
+  height: 300rpx;
+  left: 0px;
+}
+.shop_msg{
+  flex-grow: 10;
+  display: flex;
+  width: 365rpx;
+  flex-direction: column;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.shop_name, .star1, .star2, .star3{
+  flex-grow: 1;
+}
+.upAnalysis{
+  position: relative;
+  width: 730rpx;
+  padding-top: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+}
+.up_img image{
+  flex-grow: 1;
+  width: 300rpx;
+  height: 300rpx;
+  left: 0px;
+  padding-right: 10px;
+}
+.up_msg{
+  flex-grow: 10;
+  display: flex;
+  width: 365rpx;
+  flex-direction: column;
+}
+.up_name, .fans, .likenum, .intro{
+  flex-grow: 1;
+}
+
+.link{
+  text-decoration:underline;
+  color: red;
+}
+
+#analysis{
+  padding-top: 10px;
+  width: 100%;
+  height: 20px;
+}
+
+/*
+.slider1{
+  position: absolute;
+  bottom: 60px;
+  width: 100px;
+  height: 20px;
+}
+
+.slider2{
+  position: absolute;
+  bottom: 10px;
+  width: 100px;
+  height: 20px;
+}
+*/

@@ -1,0 +1,43 @@
+<!--pages/history/history.wxml-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+  <!--顶部空白-->
+<view class="top" style="background:#000000; opacity:0; "></view>
+
+<view class="content">
+<view class="postHistory"  wx:for="{{postList}}">
+  <van-row>
+    <van-col span="5" center>
+      <van-image
+      round
+      width="2.8rem"
+      height="2.8rem"
+      src="{{item.postimage}}"
+      class="image"
+      />
+    </van-col>
+    <van-col span="19">
+      <van-panel title="{{item.postnickname}}" desc="{{item.posttime.year}}-{{item.posttime.monthValue}}-{{item.posttime.dayOfMonth}}   {{item.posttime.hour}}:{{item.posttime.minute}}" ></van-panel>
+    </van-col>
+  </van-row>
+  <view class="postReviewed">
+      <van-card
+      desc="{{item.postcontent}}"
+      title="{{item.merchandisename}}"
+      thumb="{{item.merchandisepicpath}}" >
+        <view slot="footer">
+          <van-button size="mini" bind:click="onDeletePost" id="{{item.postkey}}" color="#F2826D">
+          删帖</van-button>
+        </view>
+       </van-card>
+  </view>
+</view>
+</view>
+

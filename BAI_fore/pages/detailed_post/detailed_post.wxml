@@ -1,0 +1,128 @@
+<!--整体页面布局-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+<view class="container">
+  <!--帖子部分-->
+  <view class="post">
+    <!--显示发帖用户头像昵称等信息-->
+    <view class="top">
+      <!--用户头像-->
+      <view class="img">
+        <van-image
+          round
+          width="5rem"
+          height="5rem"
+          fit="cover"
+          src="{{avatarUrl}}"
+        />
+      </view>
+      <!--发帖信息-->
+      <view class="msg">
+        <!--昵称-->
+        <view class="nickname">
+          {{nickname}}
+        </view>
+        <!--发帖时间-->
+        <view class="time">
+         {{time}} 
+        </view>
+      </view>
+      <view class="right">
+          <van-button wx:if="{{complain==false}}" class="complain" color="red" size="mini" plain 
+            bind:click="onComplain">举报</van-button>
+          <van-button wx:if="{{complain==true}}" class="complain" color="black" size="mini" plain 
+            bind:click="onComplain">已举报</van-button>
+          <image class="collect" mode="widthFix" style="width:35px" bind:tap="onCollect" src="{{collect ? yesCollect : noCollect }}"/>
+      </view>
+    </view>
+    <van-divider />
+
+
+<!--展示图片、商品名、内容-->
+  <van-card
+    desc="{{content}}"
+    title="商品： {{McdName}}"
+    thumb="{{McdImages[0]}}"
+  />
+    <!--帖子推荐商品链接-->
+    <view class="link">
+     {{McdUrl}}
+    </view>
+    
+   <van-cell-group  wx:for="{{commentDetail}}">
+    <van-cell 
+       title="@{{item.commentatornickname}}: {{item.commentcontent}}"  
+       value="{{item.commenttime.year}}-{{item.commenttime.monthValue}}-{{item.commenttime.dayOfMonth}}   {{item.commenttime.hour}}:{{item.commenttime.minute}}"  border="{{ true }}" bind:click="Reply" id="{{item.commentkey}}">
+    </van-cell>  
+    </van-cell-group>
+
+
+    <van-popup show="{{ showReply }}" 
+          bind:close="closeReply"
+          closeable
+          position="bottom"
+          custom-style="height: 50%"
+          >
+          <view class="comment_text">
+            <van-field
+            value="{{ message }}"
+            label="回复"
+            type="textarea"
+            placeholder="请输入回复"
+            autosize
+            border="{{ false }}"
+            bind:change="changeReply"
+          />
+          <!--发表回复-->
+          <van-button  size="large" bind:click="upLoadCommentReply" color="#fa8677" 
+          class="button" >
+          发表回复</van-button>
+        </view>
+        </van-popup>
+        <view class="rest"> </view>
+    <!--评论点赞栏-->
+    <view class="likeBar">
+      <view class="comment"   >
+          <van-icon name="comment-o" 
+          size="30px"
+          is-link bind:click="showComment"
+          style="padding-left=200px"
+          />
+          <van-popup show="{{ showComment }}" 
+          bind:close="closeComment"
+          closeable
+          position="bottom"
+          custom-style="height: 50%"
+          >
+          <view class="comment_text">
+            <van-field
+            value="{{ message }}"
+            label="评论"
+            type="textarea"
+            placeholder="请输入评论"
+            autosize
+            border="{{ false }}"
+            bind:change="changeComment"
+          />
+          <!--发表回复-->
+          <van-button  size="large" bind:click="upLoadComment" color="#fa8677" class="button">
+          发表评论</van-button>
+        </view>
+        </van-popup>
+      </view>
+      <view class="like" bind:tap="onLike"  style="padding-right:0px">
+        <image src="{{like ? yesSrc : noSrc }}" />
+        <text>{{count}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+

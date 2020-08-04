@@ -1,0 +1,56 @@
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+  z-index: 100;
+}
+.container{
+  position: relative;
+  top:150px;
+  background-color: white;
+}
+.top{
+  position: absolute;
+  width: 750rpx;
+  top:10px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 35px;
+}
+.pic{
+  position: relative;
+  padding-top: 30px;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 300rpx;
+}
+.intro{
+  position: relative;
+  padding-top: 50px;
+  font-size: 20px;
+  line-height: 25px;
+}
+.tips{
+  position: relative;
+  padding-top: 10px;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.canvas{
+  position: relative;
+  top:10px;
+  height: 600px;
+  width: 90%;
+}

@@ -1,0 +1,24 @@
+<!--整体页面布局-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/ishop_banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+<view class="container">
+  <view class="top">
+    商品建议价格
+    <view class="pic">
+      <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" ></canvas>
+    </view>
+    <view class="intro">
+      商品销售量与价格变化关系图
+    </view>
+    <view class="tips">
+      建议零售价：￥{{price}}
+    </view>
+   </view>
+</view>

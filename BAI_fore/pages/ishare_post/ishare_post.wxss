@@ -1,0 +1,34 @@
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+}
+.top{
+  top: 75px;
+}
+.input{
+  position: fixed;
+  top: 75px;
+  width:355px;
+}
+.pic{
+  position: inherit;
+  left: 15px;
+}
+
+.button
+{
+width:100%;
+position:fixed;
+bottom:0;
+}

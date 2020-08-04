@@ -1,0 +1,146 @@
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+}
+.container{
+  position: relative;
+  top: 60px;
+  background-color: white;
+}
+.post{
+  position: absolute;
+  top: 0px;
+  width: 690rpx;
+  font-size: 15rpx;
+  line-height: 25rpx;
+}
+.top{
+  position: relative;
+  width: 365px;
+  padding-top: 10px;
+  display: flex;
+}
+.img{
+  flex-grow: 1;
+  width: 90px;
+}
+.msg{
+   flex-grow: 1;
+   flex-direction: column;
+   position: relative;
+   width: 150px;
+}
+.nickname{
+  font-size: 20px;
+  padding-top: 1rem;
+  height: 2rem;
+  flex-grow: 1;
+}
+.time{
+  font-size: 13px;
+  height: 1rem;
+  flex-grow: 1;
+  padding-bottom: 0rem;
+}
+.right{
+  flex-grow: 1;
+  width:120px;
+  display: flex;
+  flex-direction: column;
+}
+.complain{
+  flex-grow: 1;
+  position: relative;
+  top:0px;
+  left:45px;
+  right: 20px;
+}
+.collect {
+  flex-grow: 1;
+  position: relative;
+  top:0px;
+  left:53px;
+  right: 18px;
+}
+
+.middle{
+  height: 80px;
+}
+
+.content{
+  font-size: 35rpx;
+  line-height: 38rpx;
+  text-indent: 70rpx;
+  letter-spacing: 1px;
+}
+.merchandiseName{
+  font-size: 30rpx;
+  line-height: 33rpx;
+}
+.link{
+  padding-top: 10px;
+  font-size: 30rpx;
+  line-height: 33rpx;
+  text-decoration:underline;
+  color: red;
+  padding-bottom: 20px;
+}
+.likeBar{
+  display: flex;
+  position: fixed;
+  height: 35px;
+  bottom: 0px;
+  background-color: white;
+}
+.comment{
+  flex-grow: 1;
+  width: 375rpx;
+}
+.comment_text{
+  position: relative;
+  top: 40px;
+}
+.like{
+  flex-grow: 1;
+  width: 375rpx;
+}
+.like image{
+  width: 30px;
+  height: 30px;
+}
+.like text{
+  position: absolute;
+  line-height: 25px;
+  font-size: 20px;
+  bottom: 5px;
+}
+.comment text{
+  font-size: 25px;
+  line-height: 30px;
+}
+.rest{
+  height: 40px;
+  width: 100%;
+}
+
+.button
+{
+width:100%;
+position:fixed;
+bottom:0;
+}
+
+.aaa{
+  background-color: brown;
+}

@@ -1,0 +1,50 @@
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index: -1;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.top{
+  top: 75px;
+}
+.container{
+  padding-top: 75px;
+}
+.searchBar{
+  position: relative;
+  width: 100%;
+  padding: 0px;
+}
+.merchandise{
+  position: relative;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+}
+#analysis{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+}
+#price{
+  margin-right: 2px;
+}
+#amount{
+  margin-left: 2px;
+}
+
+#analysis{
+  position: fixed;
+  bottom:50px;
+  left:0px;
+  right: 0px;
+  width:100%;
+}
+

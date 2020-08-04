@@ -1,0 +1,100 @@
+<!--整体页面布局-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/ishop_banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+<view class="container">
+  <!--标题-->
+  <view class="top">
+    综合分析
+  <van-dropdown-menu active-color="#ee0a24" >
+    <van-dropdown-item  id="choice" value="{{value}}" options="{{ option }}" bind:change="onchoice"/>
+  </van-dropdown-menu>
+  </view>
+  
+  <!--选项一 价格分析-->
+  <view class="{{showview1 ? 'show': 'hide'}}">
+    <view class="priceAnalysis">
+      <van-tabs swipeable bind:change="onChange">
+        <van-tab title="直方图 数据分析">
+          <canvas canvas-id="columnCanvas" class="canvas1" ></canvas>
+        </van-tab>
+        
+        <van-tab title="饼状图 数据分析" >
+          <canvas canvas-id="pieCanvas" class="canvas2" style="height:300px" ></canvas>
+        </van-tab>
+      </van-tabs>
+   </view>
+ </view>
+
+<view class="{{showview2 ? 'show': 'hide'}}">
+  <!--选项二同类店铺推荐-->
+   <van-dropdown-menu font-size:small>
+    <van-dropdown-item id="item" title="排序权重">
+    <van-cell title="销量" center >
+      <van-slider  class="slider1"
+         value="{{ currentValueAmount }}"  
+        bind:drag="onDrag1"  bind:change="onChange" 
+        bar-height="4px" active-color="#ee0a24" step="1" >
+      </van-slider>
+     </van-cell>
+      
+
+    <van-cell title="信誉" center >
+      <van-slider class="slider2"
+        value="{{ currentValueTrust }}" 
+        bind:drag="onDrag2"  bind:change="onChange"
+        bar-height="4px" active-color="#ee0a24" step="1">
+      </van-slider>
+    </van-cell>
+      <van-button type="info" block bind:click="onCheck" 
+      color="linear-gradient(to right, #BCDFDB, #45ABC1)">
+        确定
+    </van-button>
+  
+    
+    </van-dropdown-item>
+  </van-dropdown-menu>
+  
+  <!--店铺分析结果-->
+    <view class="shopAnalysis " wx:for="{{shopList}}">
+      <view class="shop_img">
+        <image src="{{item.mssimage}}" />
+      </view>
+      <view class="shop_msg">
+        <view class="shop_name">{{item.mssshopname}}</view>
+        <view class="star1">
+          宝贝描述：{{item.mssdescriptionpoints}}
+        </view>
+        <view class="star2">
+          卖家服务：{{item.mssservepoints}}
+        </view>
+        <view class="star3">
+          物流服务：{{item.msslogisticsspeedpoints}}
+        </view>
+      </view>
+    </view>
+    <van-divider />
+  </view>
+  <!--选项三 博主推荐-->
+  <view class="{{showview3 ? 'show': 'hide'}}">
+    <view class="upAnalysis " wx:for="{{bloggerList}}">
+      <view class="up_img">
+        <image src="{{item.img}}" />
+      </view>
+      <view class="up_msg">
+        <view class="up_name">博主名称：{{item.name}}</view>
+        <view class="fans">粉丝数：{{item.fansnum}}</view>
+        <view class="likenum">微博数：{{item.blognum}}</view>
+        <view class="intro">微博链接：
+          <navigator class="link">{{item.url}}</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

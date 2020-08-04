@@ -1,0 +1,68 @@
+<!--整体页面布局-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/ishop_banner.jpg" ></image>
+</view>
+  <!--顶部空白-->
+  <view class="top" style="background:#000000; opacity:0; "></view>
+  
+<view class="container">
+  <view class="searchBar"><!--搜索框-->
+     <van-search
+    value="{{ value }}"
+     input-align="left"
+      shape="round"
+      background= "#00"
+      placeholder="搜索店内商品"
+      show-action
+      bind:search="onSearch"
+      bind:cancel="onCancel"
+    />
+
+  </view>
+  <view class="merchandise">
+  <!--  desc="{{item.}}"tag="标签"-->
+    <van-card
+    wx:for="{{merchandiseInShop}}"
+    price="{{item.mmiprice}}"
+    title="{{item.mminame}}"
+    thumb="{{ item.mmiimg }}"
+    thumb-link="{{item.mmiurl}}"
+    >
+      <view slot="footer">
+        <van-button size="mini"
+        id="{{item.mmiid}}"
+        bind:click="onPrice"
+        color="linear-gradient(to right, #43ACC2, #45ABC1)"
+        >建议定价</van-button>
+
+        <van-button size="mini"
+        id="{{item.mmiid}}"
+        bind:click="onAmount"
+         color="linear-gradient(to right, #43ACC2, #45ABC1)"
+        >建议进货量</van-button>       
+      </view>
+    </van-card>
+  </view>
+
+
+    <van-button size="large"  
+    id="analysis"
+    class="analysis"
+    bind:click="clickAnalysis"
+    color="linear-gradient(to right, #BCDFDB, #45ABC1 )"
+    >店铺综合分析</van-button>
+</view>
+
+
+<!--底部导航栏-->
+<van-tabbar active="{{ activePage }}" bind:change="onChangePage" 
+active-color="#F2826D" inactive-color="#000">
+  <van-tabbar-item name="../ibuy/ibuy" icon="cart-o">ibuy</van-tabbar-item>
+  <van-tabbar-item name="../ishare/ishare" icon="friends-o">ishare</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity==2}}" name="../ishop/ishop" 
+   icon="shop-o">ishop</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity!=0}}" name="../my/my" icon="contact">my</van-tabbar-item>
+  <van-tabbar-item  wx:if="{{identity==0}}" name="../administrator/administrator"
+   icon="contact">my</van-tabbar-item>
+</van-tabbar>

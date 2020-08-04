@@ -1,0 +1,40 @@
+<!--pages/notice/notice.wxml-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+  <!--顶部空白-->
+<view class="top" style="background:#000000; opacity:0; "></view>
+
+<!--顶部分类栏-->
+<view class="container">
+  <van-tabs class="com" active="{{active}}" sticky swipeable>
+    <!--评论回复-->
+    <van-tab title="评论回复">  
+      <view class="postHistory"  wx:for="{{reviewList}}">
+            <van-panel   wx:if="{{item.pntype=='点赞'}}"
+            desc="{{item.usernickname}}  {{item.noticetime.year}}-{{item.noticetime.monthValue}}-{{item.noticetime.dayOfMonth}}   {{item.noticetime.hour}}:{{item.noticetime.minute}}" 
+            title="点赞了你" ></van-panel>
+
+            <van-panel   wx:if="{{item.pntype=='评论'}}"
+            desc="{{item.usernickname}}  {{item.noticetime.year}}-{{item.noticetime.monthValue}}-{{item.noticetime.dayOfMonth}}   {{item.noticetime.hour}}:{{item.noticetime.minute}}" 
+            title="评论：{{item.content}}" ></van-panel>
+
+             
+    
+      </view>
+    </van-tab>
+    <!--直播<van-tab title="直播通知" bind:click="onClickLive">
+      <van-notice-bar  scrollable="false" wrapable color="#F6416C" left-icon="tv-o"
+      wx:for="{{live}}"  wx:key="{{index}}" 
+      text="{{item.liveTime+item.anchor+item.McdType+item.liveLink}}"
+      />
+    </van-tab>通知-->
+    
+  </van-tabs>
+</view>

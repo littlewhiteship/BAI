@@ -1,0 +1,50 @@
+<!--pages/favourite/favourite.wxml-->
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/banner.jpg" ></image>
+    <image class="back" src="../../utils/images/back.png" 
+    style="width:35px;height:35px"
+    bind:tap="onback"
+    hover-stop-propagation='true'
+    ></image>  
+</view>
+  <!--顶部空白-->
+<view class="top" style="background:#000000; opacity:0; "></view>
+
+<view class="container">
+  <!--顶部分类栏-->
+  <van-tabs class="favor" active="{{active}}" sticky swipeable>
+    <!--收藏的商品-->
+  <van-tab title="商品">
+    <van-card
+      wx:for="{{McdFavList}}" 
+      tag="{{item.cfmplatform}}"
+      price="{{item.cfmprice}}"
+      title="{{item.cfmname}}"
+      thumb="{{item.cfimage }}"
+      thumb-link="{{item.cfmurl}}"
+    >
+    <view slot="footer">
+        <van-button size="mini" bind:click="onChangeFavMcd" id="{{item.cffavid}}">
+        取消收藏</van-button>
+    </view>
+    </van-card>
+</van-tab>
+
+    <!--收藏的帖子-->
+    <van-tab title="帖子">
+   <van-card
+    wx:for="{{postFavList}}" 
+    desc="{{item.merchandisename}}！！！：{{item.postcontent}}"
+    title="@{{item.postnickname}}"
+    thumb="{{item.merchandisepicpath }}"
+    thumb-link="{{item.merchandiselink}}"
+  >
+   <view slot="footer">
+      <van-button size="mini" bind:click="onChangeFavPost" id="{{item.postkey}}">
+      取消收藏</van-button>
+  </view>
+ </van-card>
+ </van-tab>
+</van-tabs> 
+</view>

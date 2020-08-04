@@ -1,0 +1,17 @@
+{
+  "usingComponents":
+     { "van-search": "../../miniprogram_npm/@vant/weapp/search/index",
+      "van-dropdown-menu": "../../miniprogram_npm/@vant/weapp/dropdown-menu/index",
+      "van-dropdown-item": "../../miniprogram_npm/@vant/weapp/dropdown-item/index",
+      "van-card": "../../miniprogram_npm/@vant/weapp/card/index",
+      "van-cell": "../../miniprogram_npm/@vant/weapp/cell/index",
+      "van-cell-group": "../../miniprogram_npm/@vant/weapp/cell-group/index",
+      "van-button": "../../miniprogram_npm/@vant/weapp/button/index",
+      "van-slider": "../../miniprogram_npm/@vant/weapp/slider/index",
+      "van-image": "../../miniprogram_npm/@vant/weapp/image/index",
+      "van-tabbar": "@vant/weapp/tabbar/index",
+      "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+      "van-icon": "@vant/weapp/icon/index"
+    }
+
+}

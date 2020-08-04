@@ -1,0 +1,67 @@
+<!--pages/my/my.wxml-->
+<view class="backView">
+  <image class="i" mode="widthFix" src="../../utils/images/banner.jpg"></image>
+</view>
+
+<!--顶部空白-->
+<view class="top" style="background:#000000; opacity:0; "></view>
+
+<!--个人信息-->
+<view class="personalInfo">
+  <!--头像-->
+  <van-row >
+    <van-col span="8" >
+      <van-image
+      class="avatar"
+      round
+      fit="cover"
+      width="5rem"
+      height="5rem"
+      src="{{avatarUrl}}"
+      style="padding-left:15px"
+      />
+    </van-col>
+  
+    <!--昵称身份-->
+    <van-col span="12"  center>
+      <view  style="height:40px;width:200px; background:white; opacity:0.7;font-color:black; font-size:large; padding-left: 30px; line-height:82rpx; width:100%">
+      <text space="ensp">昵称:  {{nickname}}</text>
+      </view>
+      <view  style="height:40px;width:200px; background:white; opacity:0.7;font-color:black; font-size:large;padding-left: 30px;line-height:82rpx; width:100%">
+      <text space="ensp">身份： 管理员</text>
+      </view>
+    </van-col>
+   
+  </van-row>
+</view>
+<view class="center" style="background:#000000; opacity:0; "></view>
+
+
+<!--底部导航栏-->
+<van-tabbar active="{{ activePage }}" bind:change="onChangePage" 
+active-color="#F2826D" inactive-color="#000">
+  <van-tabbar-item name="../ibuy/ibuy" icon="cart-o">ibuy</van-tabbar-item>
+  <van-tabbar-item name="../ishare/ishare" icon="friends-o">ishare</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity==2}}" name="../ishop/ishop" 
+   icon="shop-o">ishop</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity!=0}}" name="../my/my" icon="contact">my</van-tabbar-item>
+  <van-tabbar-item  wx:if="{{identity==0}}" name="../administrator/administrator"
+   icon="contact">my</van-tabbar-item>
+</van-tabbar>
+
+<!--被举报列表-->
+<van-card
+  wx:for="{{postList}}" 
+  num="{{item.complaintnum}}"
+  tag=""
+  price=""
+  desc="{{item.merchandisename}}！！！:{{item.postcontent}}"
+  title="{{item.postaccount}}"
+  thumb="{{item.merchandisepicpath}}"
+  >
+  <view slot="footer">
+  <van-button size="mini" bind:click="onRemovePost" id="{{item.postkey}}">删帖</van-button>
+  <!--封号<van-button size="mini" bind:click="onRemoveAccount" id="{{item.postOpenid}}">
+  封号</van-button>-->
+  </view>
+  </van-card>

@@ -1,0 +1,56 @@
+/* pages/notice/notice.wxss */
+.backView{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+.i{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.back{
+  position: fixed;
+  top:25px;
+  left: 10px;
+}
+.top{
+  top: 75px;
+}
+.container{
+  position: absolute;
+  top:75px;
+  width: 100%;
+  background-color: white;
+}
+.com{
+  position: absolute;
+  top:0px;
+  width: 100%;
+}
+.review{
+  font-size: medium;
+  border: black;
+  left: 0px;
+  padding-top: 10px;
+
+
+}
+.postReviewed{
+  border-color: rgb(254, 247, 247);
+  padding-top: 10px;
+  padding-bottom: 0px;
+  border-style: groove,hidden;
+}
+.reviewModel{
+  border-style: groove,hidden;
+  border-color: rgb(218, 246, 119);
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+}
+
+.content{
+  height: max-content;
+  
+}

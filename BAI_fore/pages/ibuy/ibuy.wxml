@@ -1,0 +1,82 @@
+<!--背景图-->
+<view class="backView">
+  <image class="i"  mode='widthFix' src="../../utils/images/ibuy_banner.jpg" ></image>
+</view>
+  <!--顶部空白-->
+  <view class="top" style="background:#000000; opacity:0; "></view>
+
+  
+  <!--搜索框-->
+   <van-search
+    value="{{ searchKeywords }}"
+     input-align="left"
+      shape="round"
+      background= "#00"
+      placeholder="搜索关键词全网比价"
+      show-action
+      bind:search="onSearch"
+      bind:cancel="onCancel"
+    />
+
+  <!--自定义比价标准-->
+   <van-dropdown-menu  active-color="#e95f5c" font-size:small>
+    <van-dropdown-item title="价格区间" value="{{ priceRange }}" 
+    options="{{ priceRangeOption }}" bind:change="changePriceRange"/>
+                       
+    <van-dropdown-item id="item" title="排序方式">
+  
+      <van-cell title="价格" center>
+        <van-slider value="{{ pricePP }}" use-button-slot bar-height="4px" active-color="#e95f5c"  bind:drag="onDragP" step="1">
+          <view class="custom-button" slot="button">
+          </view>
+        </van-slider>
+      </van-cell>
+  
+      <van-cell title="销量" center>
+        <van-slider value="{{ salesPP }}"  bar-height="4px" active-color="#e95f5c"  bind:drag="onDragS" step="1">
+        </van-slider>
+      </van-cell>
+      
+      <van-cell title="店铺信誉" center>
+       <van-slider value="{{ favourableRatePP }}"  bar-height="4px" active-color="#e95f5c"  bind:drag="onDragF" step="1">
+      </van-slider>
+      </van-cell>
+
+      <van-button type="info" block bind:click="onConfirm" color="linear-gradient(to right, #f2f2f2,#e95f5c)" plain>
+        确定
+      </van-button>
+    </van-dropdown-item>
+  </van-dropdown-menu>
+  
+  
+  
+  
+  <!--商品栏 desc="{{item.sourceStore}}"-->
+  <van-card
+  wx:for="{{merchandise}}" 
+    tag="{{item.platform}}"
+    price="{{item.price}}"
+    title="{{item.amsname}}"
+    thumb="{{item.amsimage }}"
+    thumb-link="{{item.link}}"
+  >
+  <view slot="footer">
+      <van-button size="mini" bind:click="onChangeFav" id="{{item.id}} "
+       data-value="{{item.link}}" >
+      收藏</van-button>
+  </view>
+  </van-card>
+
+
+<!--底部导航栏-->
+<van-tabbar active="{{ activePage }}" bind:change="onChangePage" 
+active-color="#F2826D" inactive-color="#000">
+  <van-tabbar-item name="../ibuy/ibuy" icon="cart-o">ibuy</van-tabbar-item>
+  <van-tabbar-item name="../ishare/ishare" icon="friends-o">ishare</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity==2}}" name="../ishop/ishop" 
+   icon="shop-o">ishop</van-tabbar-item>
+  <van-tabbar-item wx:if="{{identity!=0}}" name="../my/my" icon="contact">my</van-tabbar-item>
+  <van-tabbar-item  wx:if="{{identity==0}}" name="../administrator/administrator"
+   icon="contact">my</van-tabbar-item>
+</van-tabbar>
+  
